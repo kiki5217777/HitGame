@@ -62,7 +62,6 @@
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	
 	// CCGLView creation
 	// viewWithFrame: size of the OpenGL view. For full screen use [_window bounds]
 	//  - Possible values: any CGRect
@@ -83,13 +82,12 @@
 									sharegroup:nil
 								 multiSampling:NO
 							   numberOfSamples:0];
-	
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 	
 	director_.wantsFullScreenLayout = YES;
 	
 	// Display FSP and SPF
-	[director_ setDisplayStats:YES];
+	[director_ setDisplayStats:NO];//modified by kiki Huang 2014.01.24
 	
 	// set FPS at 60
 	[director_ setAnimationInterval:1.0/60];

@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import "HelloWorldLayer.h"
 #import "Constants.h"
-#define missionNumber 3
+#define missionNumber 30
 
 @interface MyBoxLayer : CCLayer {
     

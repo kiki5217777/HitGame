@@ -307,6 +307,7 @@
     
     if (CGRectContainsPoint(hitBtn.boundingBox, touchLocation) && !disableHitBtnTapped) {
 //        NSLog(@"hit");
+        NSLog(@"box:%d box1:%d",[box.spriteNum count],[box1.spriteNum count]);
         [self hitSpriteHandler];
         
     }else if(CGRectContainsPoint(nextBtn.boundingBox, touchLocation) && !disableNextBtnTapped){
@@ -327,14 +328,16 @@
 -(void)hitSpriteHandler{
 //    NSLog(@"hitsprite count %d",spriteCount);
     if (spriteCount>0) {
-    
+        
         if (box.position.x == posX) {
+            NSLog(@"%d",[box.spriteNum count]);
             CCSprite *hitsprite = [box.spriteNum objectAtIndex:0];
 //            NSLog(@"hit posX: %f posY %f",hitsprite.position.x,hitsprite.position.y);
             [self HitAnimation:hitsprite];
             
         }
         else{
+            NSLog(@"%d",[box1.spriteNum count]);
             CCSprite *hitsprite = [box1.spriteNum objectAtIndex:0];
 //            NSLog(@"hit posX: %f posY %f",hitsprite.position.x,hitsprite.position.y);
             [self HitAnimation:hitsprite];
@@ -342,6 +345,7 @@
     
     }else{
 //        NSLog(@"hit error");
+        
         disableHitBtnTapped = YES;
         disableNextBtnTapped = YES;
         disableGameTimer = YES;
@@ -356,7 +360,7 @@
             [self HitErrorAnimation:box1.headSprite];
             
         }
-        
+        [self unschedule:@selector(timerUpdate:)];
         id actionMoveErrorSprite = [CCMoveTo actionWithDuration:0.05 position:ccp(posX, posY)];
         id actionMoveErrorDown = [CCCallFuncN actionWithTarget:self selector:@selector(errorSpriteMoveFinished)];
         [errorSprite runAction:[CCSequence actions:actionMoveErrorSprite,actionMoveErrorDown, nil]];
@@ -422,7 +426,7 @@
     NSLog(@"countNumber %d",countNumber);
     [numLabel setString:[NSString stringWithFormat:@"%d",countNumber]];
     
-    if (countNumber>1) {
+    if (countNumber>=2) {
         
         
         
@@ -459,17 +463,21 @@
     if(countNumber ==1){
         if (box.position.x==posX) {
             box.visible = NO;
+            box.position = ccp(pos1X, posY);
+            
             
             box1.position = ccp(posX, posY);
             spriteCount = [box1.spriteNum count];
+            NSLog(@"%d",spriteCount);
             
             
         }else{
             box1.visible = NO;
-            
+            box1.position = ccp(pos1X, posY);
+        
             box.position = ccp(posX, posY);
             spriteCount = [box.spriteNum count];
-            
+            NSLog(@"%d",spriteCount);
             
         }
         
