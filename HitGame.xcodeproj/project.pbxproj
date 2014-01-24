@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770242C6188E1D8300F33734 /* HITME.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 770242C5188E1D8300F33734 /* HITME.jpeg */; };
+		770242C8188E1E1D00F33734 /* NEXT.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 770242C7188E1E1D00F33734 /* NEXT.jpeg */; };
+		7749319218910AFE00C6CEF3 /* BACK.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7749319118910AFE00C6CEF3 /* BACK.jpeg */; };
+		7749319418910B4E00C6CEF3 /* PAUSE.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7749319318910B4E00C6CEF3 /* PAUSE.jpeg */; };
+		779677C9188F5696000B0279 /* ANGRY.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 779677C8188F5696000B0279 /* ANGRY.jpeg */; };
+		779677CD188F655B000B0279 /* OptionImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 779677CC188F655B000B0279 /* OptionImage.m */; };
+		779677CF188F6E0B000B0279 /* ErrorBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 779677CE188F6E0B000B0279 /* ErrorBackground.jpg */; };
+		779677D2188F6F13000B0279 /* AGAIN.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 779677D0188F6F13000B0279 /* AGAIN.jpeg */; };
+		779677D3188F6F13000B0279 /* EXIT.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 779677D1188F6F13000B0279 /* EXIT.jpeg */; };
+		779E56071890B2DB005D5182 /* Num1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 779E56041890B2DB005D5182 /* Num1.jpeg */; };
+		779E56081890B2DB005D5182 /* Num2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 779E56051890B2DB005D5182 /* Num2.jpeg */; };
+		779E56091890B2DB005D5182 /* Num3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 779E56061890B2DB005D5182 /* Num3.jpeg */; };
 		77AB7853188CB08400A7CD85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AB7852188CB08400A7CD85 /* QuartzCore.framework */; };
 		77AB7855188CB08400A7CD85 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AB7854188CB08400A7CD85 /* OpenGLES.framework */; };
 		77AB7857188CB08400A7CD85 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77AB7856188CB08400A7CD85 /* OpenAL.framework */; };
@@ -141,9 +153,26 @@
 		77AB79F9188CB08600A7CD85 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AB79F8188CB08600A7CD85 /* AppDelegate.m */; };
 		77AB79FC188CB08600A7CD85 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AB79FB188CB08600A7CD85 /* HelloWorldLayer.m */; };
 		77AB79FF188CB08600A7CD85 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AB79FE188CB08600A7CD85 /* IntroLayer.m */; };
+		77AB7A11188CF7F300A7CD85 /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AB7A10188CF7F300A7CD85 /* Box.m */; };
+		77AB7A13188CFE2F00A7CD85 /* blueButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AB7A12188CFE2F00A7CD85 /* blueButton@2x.png */; };
+		77AB7A15188D04D400A7CD85 /* 取消叫車按鈕@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77AB7A14188D04D400A7CD85 /* 取消叫車按鈕@2x.png */; };
+		77AB7A3B188D2F5D00A7CD85 /* MyBoxLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AB7A3A188D2F5D00A7CD85 /* MyBoxLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		770242C5188E1D8300F33734 /* HITME.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HITME.jpeg; sourceTree = "<group>"; };
+		770242C7188E1E1D00F33734 /* NEXT.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NEXT.jpeg; sourceTree = "<group>"; };
+		7749319118910AFE00C6CEF3 /* BACK.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BACK.jpeg; sourceTree = "<group>"; };
+		7749319318910B4E00C6CEF3 /* PAUSE.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PAUSE.jpeg; sourceTree = "<group>"; };
+		779677C8188F5696000B0279 /* ANGRY.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ANGRY.jpeg; sourceTree = "<group>"; };
+		779677CB188F655B000B0279 /* OptionImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionImage.h; sourceTree = "<group>"; };
+		779677CC188F655B000B0279 /* OptionImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionImage.m; sourceTree = "<group>"; };
+		779677CE188F6E0B000B0279 /* ErrorBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ErrorBackground.jpg; sourceTree = "<group>"; };
+		779677D0188F6F13000B0279 /* AGAIN.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AGAIN.jpeg; sourceTree = "<group>"; };
+		779677D1188F6F13000B0279 /* EXIT.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EXIT.jpeg; sourceTree = "<group>"; };
+		779E56041890B2DB005D5182 /* Num1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Num1.jpeg; sourceTree = "<group>"; };
+		779E56051890B2DB005D5182 /* Num2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Num2.jpeg; sourceTree = "<group>"; };
+		779E56061890B2DB005D5182 /* Num3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Num3.jpeg; sourceTree = "<group>"; };
 		77AB784F188CB08400A7CD85 /* HitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77AB7852188CB08400A7CD85 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		77AB7854188CB08400A7CD85 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -425,6 +454,13 @@
 		77AB79FB188CB08600A7CD85 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		77AB79FD188CB08600A7CD85 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		77AB79FE188CB08600A7CD85 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		77AB7A0F188CF7F300A7CD85 /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
+		77AB7A10188CF7F300A7CD85 /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Box.m; sourceTree = "<group>"; };
+		77AB7A12188CFE2F00A7CD85 /* blueButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueButton@2x.png"; sourceTree = "<group>"; };
+		77AB7A14188D04D400A7CD85 /* 取消叫車按鈕@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "取消叫車按鈕@2x.png"; sourceTree = "<group>"; };
+		77AB7A16188D086500A7CD85 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		77AB7A39188D2F5D00A7CD85 /* MyBoxLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBoxLayer.h; sourceTree = "<group>"; };
+		77AB7A3A188D2F5D00A7CD85 /* MyBoxLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBoxLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +484,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		779E56031890B2C4005D5182 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7749319318910B4E00C6CEF3 /* PAUSE.jpeg */,
+				7749319118910AFE00C6CEF3 /* BACK.jpeg */,
+				779E56041890B2DB005D5182 /* Num1.jpeg */,
+				779E56051890B2DB005D5182 /* Num2.jpeg */,
+				779E56061890B2DB005D5182 /* Num3.jpeg */,
+				779677D0188F6F13000B0279 /* AGAIN.jpeg */,
+				779677D1188F6F13000B0279 /* EXIT.jpeg */,
+				779677CE188F6E0B000B0279 /* ErrorBackground.jpg */,
+				779677C8188F5696000B0279 /* ANGRY.jpeg */,
+				770242C7188E1E1D00F33734 /* NEXT.jpeg */,
+				770242C5188E1D8300F33734 /* HITME.jpeg */,
+				77AB7A14188D04D400A7CD85 /* 取消叫車按鈕@2x.png */,
+				77AB7A12188CFE2F00A7CD85 /* blueButton@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		77AB7846188CB08400A7CD85 = {
 			isa = PBXGroup;
 			children = (
@@ -485,12 +541,16 @@
 		77AB7866188CB08400A7CD85 /* HitGame */ = {
 			isa = PBXGroup;
 			children = (
+				779E56031890B2C4005D5182 /* images */,
+				77AB7A05188CB91500A7CD85 /* class */,
 				77AB79F7188CB08600A7CD85 /* AppDelegate.h */,
 				77AB79F8188CB08600A7CD85 /* AppDelegate.m */,
 				77AB79FA188CB08600A7CD85 /* HelloWorldLayer.h */,
 				77AB79FB188CB08600A7CD85 /* HelloWorldLayer.m */,
 				77AB79FD188CB08600A7CD85 /* IntroLayer.h */,
 				77AB79FE188CB08600A7CD85 /* IntroLayer.m */,
+				77AB7A39188D2F5D00A7CD85 /* MyBoxLayer.h */,
+				77AB7A3A188D2F5D00A7CD85 /* MyBoxLayer.m */,
 				77AB7867188CB08400A7CD85 /* Resources */,
 				77AB787F188CB08400A7CD85 /* libs */,
 				77AB79F3188CB08600A7CD85 /* Supporting Files */,
@@ -879,6 +939,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		77AB7A05188CB91500A7CD85 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				77AB7A0F188CF7F300A7CD85 /* Box.h */,
+				77AB7A10188CF7F300A7CD85 /* Box.m */,
+				77AB7A16188D086500A7CD85 /* Constants.h */,
+				779677CB188F655B000B0279 /* OptionImage.h */,
+				779677CC188F655B000B0279 /* OptionImage.m */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -930,18 +1002,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779677D2188F6F13000B0279 /* AGAIN.jpeg in Resources */,
+				770242C6188E1D8300F33734 /* HITME.jpeg in Resources */,
 				77AB7879188CB08400A7CD85 /* Icon.png in Resources */,
 				77AB79D7188CB08600A7CD85 /* ChangeLog in Resources */,
+				779E56071890B2DB005D5182 /* Num1.jpeg in Resources */,
 				77AB786B188CB08400A7CD85 /* Default@2x.png in Resources */,
 				77AB7875188CB08400A7CD85 /* Icon-Small.png in Resources */,
 				77AB7871188CB08400A7CD85 /* Icon-72.png in Resources */,
+				77AB7A13188CFE2F00A7CD85 /* blueButton@2x.png in Resources */,
 				77AB7869188CB08400A7CD85 /* Default.png in Resources */,
 				77AB7873188CB08400A7CD85 /* Icon-Small-50.png in Resources */,
 				77AB787E188CB08400A7CD85 /* iTunesArtwork in Resources */,
+				779677D3188F6F13000B0279 /* EXIT.jpeg in Resources */,
+				779E56091890B2DB005D5182 /* Num3.jpeg in Resources */,
+				7749319418910B4E00C6CEF3 /* PAUSE.jpeg in Resources */,
+				7749319218910AFE00C6CEF3 /* BACK.jpeg in Resources */,
 				77AB7877188CB08400A7CD85 /* Icon-Small@2x.png in Resources */,
 				77AB786F188CB08400A7CD85 /* Default-Landscape~ipad.png in Resources */,
+				779677CF188F6E0B000B0279 /* ErrorBackground.jpg in Resources */,
+				770242C8188E1E1D00F33734 /* NEXT.jpeg in Resources */,
+				77AB7A15188D04D400A7CD85 /* 取消叫車按鈕@2x.png in Resources */,
 				77AB786D188CB08400A7CD85 /* Default-568h@2x.png in Resources */,
+				779E56081890B2DB005D5182 /* Num2.jpeg in Resources */,
 				77AB787B188CB08400A7CD85 /* Icon@2x.png in Resources */,
+				779677C9188F5696000B0279 /* ANGRY.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +1046,7 @@
 				77AB78BD188CB08400A7CD85 /* ccDeprecated.m in Sources */,
 				77AB7978188CB08500A7CD85 /* CCDirectorMac.m in Sources */,
 				77AB78D2188CB08500A7CD85 /* ccGLStateCache.m in Sources */,
+				77AB7A3B188D2F5D00A7CD85 /* MyBoxLayer.m in Sources */,
 				77AB79A4188CB08600A7CD85 /* TransformUtils.m in Sources */,
 				77AB78F1188CB08500A7CD85 /* CCNode+Debug.m in Sources */,
 				77AB78CC188CB08400A7CD85 /* ccFPSImages.m in Sources */,
@@ -1020,6 +1106,7 @@
 				77AB7974188CB08500A7CD85 /* CCTouchHandler.m in Sources */,
 				77AB78EE188CB08500A7CD85 /* CCMotionStreak.m in Sources */,
 				77AB796D188CB08500A7CD85 /* CCGLView.m in Sources */,
+				77AB7A11188CF7F300A7CD85 /* Box.m in Sources */,
 				77AB799A188CB08600A7CD85 /* CGPointExtension.m in Sources */,
 				77AB789E188CB08400A7CD85 /* CCActionPageTurn3D.m in Sources */,
 				77AB79EF188CB08600A7CD85 /* vec3.c in Sources */,
@@ -1040,6 +1127,7 @@
 				77AB7906188CB08500A7CD85 /* CCPhysicsDebugNode.m in Sources */,
 				77AB788C188CB08400A7CD85 /* CCActionEase.m in Sources */,
 				77AB78C9188CB08400A7CD85 /* CCFontDefinition.m in Sources */,
+				779677CD188F655B000B0279 /* OptionImage.m in Sources */,
 				77AB7909188CB08500A7CD85 /* CCPhysicsSprite.mm in Sources */,
 				77AB79ED188CB08600A7CD85 /* vec2.c in Sources */,
 				77AB79DD188CB08600A7CD85 /* matrix.c in Sources */,
@@ -1169,6 +1257,7 @@
 				77AB7A04188CB08600A7CD85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -42,13 +42,13 @@
 	if( (self=[super init]) ) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hit Game" fontName:@"Marker Felt" fontSize:48];
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 	
 		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+		label.position =  ccp( size.width /2 , size.height/2 +50);
 		
 		// add the label as a child to this Layer
 		[self addChild: label];
@@ -63,10 +63,10 @@
 		[CCMenuItemFont setFontSize:28];
 		
 		// to avoid a retain-cycle with the menuitem and blocks
-		__block id copy_self = self;
-		
+//		__block id copy_self = self;
+		/*
 		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
+		CCMenuItem *itemAchivement = [CCMenuItemFont itemWithString:@"Achivement" block:^(id sender) {
 			
 			
 			GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
@@ -92,11 +92,12 @@
 			
 			[leaderboardViewController release];
 		}];
-
+        */
+		CCMenuItem *itemStartGame = [CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(onClickPlay:)];
+        
+		CCMenu *menu = [CCMenu menuWithItems:itemStartGame, nil];
 		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
+		[menu alignItemsVerticallyWithPadding:20];
 		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
 		
 		// Add the menu to the layer
@@ -104,6 +105,10 @@
 
 	}
 	return self;
+}
+
+-(void)onClickPlay:(id)sender{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:0.5 scene:[MyBoxLayer scene]]];
 }
 
 // on "dealloc" you need to release all your retained objects
