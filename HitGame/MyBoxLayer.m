@@ -39,30 +39,39 @@
 
 -(void)onEnterTransitionDidFinish{
     [super onEnterTransitionDidFinish];
+    self.touchEnabled = YES;//for ccTouchesBegan
     
-    [delegate.navController.view addGestureRecognizer:tap];
-    
+//    [delegate.navController.view addGestureRecognizer:tap];
+//    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];// for ccTouchBegan
+    tapObjectArray = [[NSMutableArray alloc]init];
     [self disableTapped];
     
     winSize = [[CCDirector sharedDirector]winSize];
     posX = winSize.width/2;
     pos1X = winSize.width+20;
     pos2X = -winSize.width/2;
-    posY = winSize.height/2-30;
+    posY = winSize.height/2-45;
     pos1Y = winSize.height-55;
+    pos2Y = 40;
     
 //    NSLog(@"onEnterTransitionDidFinish");
     hitBtn = [[CCSprite alloc]initWithFile:@"HITME.jpeg"];
-    hitBtn.position = ccp(100, 100);
+    hitBtn.position = ccp(posX-75, pos2Y);
+    hitBtn.tag = 0;
+    [tapObjectArray addObject:hitBtn];
     [self addChild:hitBtn];
     
     nextBtn = [[CCSprite alloc]initWithFile:@"NEXT.jpeg"];
-    nextBtn.position = ccp(250, 100);
+    nextBtn.position = ccp(posX+75, pos2Y);
+    nextBtn.tag = 1;
+    [tapObjectArray addObject:nextBtn];
     [self addChild:nextBtn];
     
     pauseBtn = [[CCSprite alloc]initWithFile:@"PAUSE.jpeg"];
     pauseBtn.scale = 0.35;
     pauseBtn.position = ccp(winSize.width-40, pos1Y);
+    pauseBtn.tag = 4;
+    [tapObjectArray addObject:pauseBtn];
     [self addChild:pauseBtn];
     
     
@@ -114,7 +123,8 @@
 }
 -(void)onExit{
     
-    [delegate.navController.view removeGestureRecognizer:tap];
+//    [delegate.navController.view removeGestureRecognizer:tap];
+    self.touchEnabled = NO;
     [self removeAllChildrenWithCleanup:YES];
     [self unschedule:@selector(timerUpdate:)];
     [box releaseAllObject];
@@ -148,8 +158,8 @@
 }
 -(void)dealloc{
     
-//    NSLog(@"dealloc");
-    [delegate.navController.view removeGestureRecognizer:tap];
+//    [delegate.navController.view removeGestureRecognizer:tap];
+    self.touchEnabled = NO;
     [self removeAllChildrenWithCleanup:YES];
     [self unschedule:@selector(timerUpdate:)];
     [box releaseAllObject];
@@ -269,6 +279,7 @@
 }
 -(void)sceneAnimation{
     
+    [optionImage removeChildren];
     box.visible = YES;
     box1.visible = YES;
     
@@ -285,44 +296,108 @@
     disableHitBtnTapped = YES;
     disableNextBtnTapped = YES;
     disableGameTimer = YES;
-    disableGamePause = YES;
+    disableGamePauseTapped = YES;
+    disablePlayAgainTapped = YES;
+    disableExitTapped = YES;
 }
 -(void)enableTapped{
     
     disableHitBtnTapped = NO;
     disableNextBtnTapped = NO;
     disableGameTimer = NO;
-    disableGamePause = NO;
+    disableGamePauseTapped = NO;
+    disablePlayAgainTapped = YES;
+    disableExitTapped = YES;
+    isPause = NO;
     
-    gameTime = 0.0;
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"PauseGameTime"]!=nil) {
+        gameTime = [[[NSUserDefaults standardUserDefaults]objectForKey:@"PauseGameTime"] floatValue];
+    }else
+        gameTime = 0.0;
+    
     [self schedule:@selector(timerUpdate:) interval:0.01];
     timerLabel.visible = YES;
+    numLabel.visible = YES;
+    
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"PauseGameTime"];
     
 }
 
--(void)handleTap:(UITapGestureRecognizer *)recognizer{
-    
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    
-    if (CGRectContainsPoint(hitBtn.boundingBox, touchLocation) && !disableHitBtnTapped) {
-//        NSLog(@"hit");
-        NSLog(@"box:%d box1:%d",[box.spriteNum count],[box1.spriteNum count]);
-        [self hitSpriteHandler];
-        
-    }else if(CGRectContainsPoint(nextBtn.boundingBox, touchLocation) && !disableNextBtnTapped){
-//        NSLog(@"next");
-        [self nextSpriteMovement];
-    }else if (CGRectContainsPoint(optionImage.playAgainBtn.boundingBox, touchLocation)){
-//        NSLog(@"again");
-        [self playAgain];
-        
-    }else if (CGRectContainsPoint(optionImage.exitBtn.boundingBox, touchLocation)){
-//        NSLog(@"exit");
-        [[CCDirector sharedDirector]replaceScene:[HelloWorldLayer scene]];
-    }else if (CGRectContainsPoint(pauseBtn.boundingBox, touchLocation) && !disableGamePause){
-        [self gamePuase];
+//modified 2014.02.05
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    //multiple touch in screen
+    if ([[touches allObjects] count] > 1) {
+        for (UITouch *t in [touches allObjects]) {
+            CGPoint tp = [self convertTouchToNodeSpace:t];
+            [self selectSpriteForTouch:tp];
+        }
     }
+    else {
+        //single touch in screen
+        UITouch *touch = [touches anyObject];
+        CGPoint touchPoint = [self convertTouchToNodeSpace:touch];
+        [self selectSpriteForTouch:touchPoint];
+    }
+}
+
+//modified 2014.02.05
+-(void)selectSpriteForTouch:(CGPoint)touchLocation{
+    
+    NSLog(@"kiki :%d\n %@",[tapObjectArray count],tapObjectArray);
+    
+    for (CCSprite *sprite in tapObjectArray) {
+        if (CGRectContainsPoint([sprite boundingBox], touchLocation)) {
+            switch (sprite.tag) {
+                case 0:   //hit
+                    NSLog(@"touch 0");
+                    if (!disableHitBtnTapped) {
+                        NSLog(@"touch 00");
+                        [self hitSpriteHandler];
+                        
+                    }
+                    break;
+                case 1:   //next
+                    NSLog(@"touch 1");
+                    if(!disableNextBtnTapped){
+                        NSLog(@"touch 11");
+                        [self nextSpriteMovement];
+                    }
+                    break;
+                case 2:   //back & again
+                    NSLog(@"touch 2");
+                    if (!disablePlayAgainTapped){
+                        disablePlayAgainTapped = YES;
+                        NSLog(@"touch 22");
+                        [self playAgain];
+                        
+                    }
+                    break;
+                case 3:   //exit
+                    NSLog(@"touch 3");
+                    if (!disableExitTapped){
+                        NSLog(@"touch 33");
+                        [[CCDirector sharedDirector]replaceScene:[HelloWorldLayer scene]];
+                        
+                    }
+                    break;
+                case 4:   //stop
+                    NSLog(@"touch 4");
+                    if (!disableGamePauseTapped){
+                        NSLog(@"touch 44");
+                        isPause = YES;
+                        [self gamePuase];
+                    }
+                    break;
+                    
+                default:
+                    NSLog(@"touch ...");
+                    break;
+            }
+            break;
+        }
+        
+    }
+    
 }
 
 -(void)hitSpriteHandler{
@@ -348,6 +423,7 @@
         
         disableHitBtnTapped = YES;
         disableNextBtnTapped = YES;
+        disableGamePauseTapped = YES;
         disableGameTimer = YES;
         if (box.position.x == posX) {
 //            NSLog(@" box %d",[box.spriteNum count]);
@@ -483,14 +559,10 @@
         
     }
     if (countNumber<=0) {
-        [self unschedule:@selector(timerUpdate)];
+        [self unschedule:@selector(timerUpdate:)];
         [optionImage addResultTimeLabel:gameTime];
         [self isFinishMission];
     }
-    
-    
-    
-    
     
 }
 -(void)spriteMoveFinished{
@@ -536,15 +608,31 @@
     
 }
 -(void)errorSpriteMoveFinished{
-    [self schedule:@selector(showOptionImage:) interval:1.0 repeat:1 delay:0.0];
+    disableHitBtnTapped = YES;
+    disableNextBtnTapped = YES;
+    disableGamePauseTapped = YES;
+    
+    [self schedule:@selector(showOptionImage:) interval:1.0 repeat:0 delay:0.0];
 }
 -(void)showOptionImage:(ccTime *)dt{
     timerLabel.visible = NO;
     numLabel.visible = NO;
-    if (disableGamePause) {
+    disablePlayAgainTapped =NO;
+    disableExitTapped = NO;
+    
+    if (isPause) {
+        
         [optionImage addBtnWithImageName:@"BACK.jpeg"];
-    }else
+        
+    }else{
         [optionImage addBtnWithImageName:@"AGAIN.jpeg"];
+        
+    }
+    optionImage.playAgainBtn.tag = 2;
+    optionImage.exitBtn.tag = 3;
+    
+    //modified 2014.02.05
+    [self inOptionViewTagArraySetup];
     
     id actionShowErrorImg = [CCMoveTo actionWithDuration:0.5 position:ccp(posX, winSize.height/2)];
     
@@ -554,7 +642,7 @@
 }
 -(void)cleanUpScene{
     
-    if (!disableGamePause) {
+    if (!isPause) {
         
         [box removeChildren];
         [box1 removeChildren];
@@ -566,12 +654,14 @@
 }
 -(void)playAgain{
     CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:1.0 opacity:255];
-    
     id actionMoveErrorImg = [CCMoveTo actionWithDuration:0.5 position:ccp(posX, winSize.height+optionImage.contentSize.height)];
     id actionMoveErrorDown = [CCCallFuncN actionWithTarget:self selector:@selector(resetScene)];
     id actionSceneAnimation = [CCCallFuncN actionWithTarget:self selector:@selector(sceneAnimation)];
     
-    if (disableGamePause) {
+    //modified 2014.02.05
+    [self inPlayViewTagArraySetup];
+    
+    if (isPause) {
         [optionImage runAction:[CCSequence actions:fadeOut,actionMoveErrorImg,actionSceneAnimation, nil]];
         
     }else{
@@ -582,11 +672,58 @@
 -(void)gamePuase{
     [self disableTapped];
     [self unschedule:@selector(timerUpdate)];
+    [[NSUserDefaults standardUserDefaults]setObject:[NSNumber numberWithFloat:gameTime] forKey:@"PauseGameTime"];
     [self errorSpriteMoveFinished];
 }
 -(void)isFinishMission{
     NSLog(@"finish");
     [self errorSpriteMoveFinished];
 
+}
+
+#pragma mark - view method
+
+-(void)inPlayViewTagArraySetup {
+    //remove
+    NSLog(@"inPlayView :%d\n %@",[tapObjectArray count],tapObjectArray);
+    if ([tapObjectArray containsObject:optionImage.playAgainBtn])
+        [tapObjectArray removeObject:optionImage.playAgainBtn];
+    
+    if ([tapObjectArray containsObject:optionImage.exitBtn])
+        [tapObjectArray removeObject:optionImage.exitBtn];
+    
+    //add
+    if (![tapObjectArray containsObject:hitBtn])
+        [tapObjectArray addObject:hitBtn];
+    
+    if (![tapObjectArray containsObject:nextBtn])
+        [tapObjectArray addObject:nextBtn];
+    
+    if (![tapObjectArray containsObject:pauseBtn])
+        [tapObjectArray addObject:pauseBtn];
+    
+     NSLog(@"inPlayView :%d\n %@",[tapObjectArray count],tapObjectArray);
+}
+
+-(void)inOptionViewTagArraySetup {
+    NSLog(@"inOptionView :%d\n %@",[tapObjectArray count],tapObjectArray);
+    //remove
+    if ([tapObjectArray containsObject:hitBtn])
+        [tapObjectArray removeObject:hitBtn];
+    
+    if ([tapObjectArray containsObject:nextBtn])
+        [tapObjectArray removeObject:nextBtn];
+    
+    if ([tapObjectArray containsObject:pauseBtn])
+        [tapObjectArray removeObject:pauseBtn];
+    
+    //add
+    if (![tapObjectArray containsObject:optionImage.playAgainBtn])
+        [tapObjectArray addObject:optionImage.playAgainBtn];
+    
+    if (![tapObjectArray containsObject:optionImage.exitBtn])
+        [tapObjectArray addObject:optionImage.exitBtn];
+    
+    NSLog(@"inOptionView :%d\n %@",[tapObjectArray count],tapObjectArray);
 }
 @end

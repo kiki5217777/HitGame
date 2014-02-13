@@ -19,6 +19,11 @@
     return self;
 }
 -(void)addBtnWithImageName:(NSString *)name{
+    //modified 2014.02.05
+    [self removeAllChildrenWithCleanup:YES];
+    self.playAgainBtn = nil;
+    self.exitBtn = nil;
+    
     self.playAgainBtn = [[CCSprite alloc]initWithFile:name];
     self.playAgainBtn.position = ccp(self.contentSize.width/2-60, self.contentSize.height/2-90);
     

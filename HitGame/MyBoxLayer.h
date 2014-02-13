@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 #import "HelloWorldLayer.h"
 #import "Constants.h"
-#define missionNumber 30
+#define missionNumber 3
 
 @interface MyBoxLayer : CCLayer {
     
@@ -22,13 +22,13 @@
     Box *box,*box1;
     OptionImage *optionImage;
     CCLabelTTF *timerLabel,*numLabel;
-    int spriteCount,posX,pos1X,pos2X,posY,pos1Y,random,winSizeX,countNumber;
-    BOOL disableHitBtnTapped,disableNextBtnTapped,disableGameTimer,disableGamePause;
+    int spriteCount,posX,pos1X,pos2X,posY,pos1Y,pos2Y,random,winSizeX,countNumber;
+    BOOL disableHitBtnTapped,disableNextBtnTapped,disableGameTimer,disableGamePauseTapped,isPause,disablePlayAgainTapped,disableExitTapped;
     
     CGFloat gameTime;
     CGSize winSize;
     UITapGestureRecognizer *tap;
-    
+    NSMutableArray *tapObjectArray;
     
 }
 +(CCScene *)scene;

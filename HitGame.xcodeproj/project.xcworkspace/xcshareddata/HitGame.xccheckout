@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A914D7A5-50AC-4022-B98C-7E35C9753427</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HitGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5EB0B13B-4A9C-48E0-9F67-0047280F4374</key>
+		<string>https://github.com/kiki5217777/HitGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HitGame.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5EB0B13B-4A9C-48E0-9F67-0047280F4374</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kiki5217777/HitGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5EB0B13B-4A9C-48E0-9F67-0047280F4374</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5EB0B13B-4A9C-48E0-9F67-0047280F4374</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HitGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>
